@@ -2,9 +2,9 @@
 Jenkins buildout readme
 =======================
 
-This buildout is used to make buildout jobs for Plone dev
+This buildout is used to make jenkins jobs for IMIO Plone dev
 
-This buildout was inspire by https://github.com/plone/buildout.jenkins and use the recipe https://github.com/plone/plone.recipe.codeanalysis
+This buildout use the recipe https://github.com/plone/plone.recipe.codeanalysis and add a coverage for Jenkins.
 
 Docs
 ====
@@ -13,9 +13,10 @@ For using it, create a jenkins.cfg file into your development products::
     [buildout]
     extends =
         buildout.cfg
-        https://raw.githubusercontent.com/IMIO/buildout.jenkins/master/jenkins.cfg
+        https://raw.githubusercontent.com/IMIO/buildout.jenkins/master/qa.cfg
 
-    source-directory = ${buildout:directory}/src
-        
 
+    [code-analysis]
+    directory = src
+    jenkins = True
 
