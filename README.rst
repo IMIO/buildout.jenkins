@@ -8,15 +8,26 @@ This buildout use the recipe https://github.com/plone/plone.recipe.codeanalysis 
 
 Docs
 ====
-For using it, create a jenkins.cfg file into your development products::
+For using it, you have to add this section in your buildout like this::
+
+    [buildout]
+    extends =
+        ...
+        https://raw.githubusercontent.com/IMIO/buildout.jenkins/master/qa.cfg
+
+    [code-analysis]
+    directory = ${buildout:directory}/other-folder-than-src
+
+[code-analysis] section is optional. By default, code-analysis will check coding style error into src directory.
+
+
+
+For using it into a jenkins job, you have create a jenkins.cfg file into your development products::
 
     [buildout]
     extends =
         buildout.cfg
-        https://raw.githubusercontent.com/IMIO/buildout.jenkins/master/qa.cfg
-
 
     [code-analysis]
-    directory = src
     jenkins = True
 
