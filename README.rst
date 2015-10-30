@@ -31,3 +31,7 @@ For using it into a jenkins job, you have create a jenkins.cfg file into your de
     [code-analysis]
     jenkins = True
 
+
+docker build -t cpskin-test:latest .
+
+docker run -e 'REPO=https://github.com/IMIO/cpskin.slider.git' cpskin-test:latest

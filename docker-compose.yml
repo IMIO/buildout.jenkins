@@ -1,0 +1,11 @@
+test:
+  build: .
+  user: imio
+  mem_limit: 2024m
+  memswap_limit: 0m # integrate in docker-compose >= 1.4
+  # ports:
+  #   - "8081:8081"
+  volumes:
+    - .:/home/imio/imio-website/
+  environment:
+  command: make jenkins-test
